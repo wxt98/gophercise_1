@@ -12,4 +12,6 @@ Simply run
 go run main.go
 ```
 
-Pending implementation of a time limit.
+## Further implementation
+Pending implementation of a time limit.  
+Pending functionality to allow users to customize the CSV file used via a flag.
