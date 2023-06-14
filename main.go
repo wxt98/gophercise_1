@@ -29,18 +29,14 @@ func main() {
 	for _, row := range questions {
 		question := row[0]
 		answer := row[1]
-		//fmt.Printf("%s = %s\n", question, answer)
 		fmt.Printf("What is %s?\n", question)
 		var response string
 		fmt.Scanln(&response)
-		if response != answer {
-			fmt.Printf("Wrong - the answer is %s. Your score is %s.\n", answer, strconv.Itoa(score))
-			csv_fd.Close()
-			os.Exit(0)
+		if response == answer {
+			score += 1
 		}
-		score += 1
 	}
-	fmt.Printf("Congratulations, you have attained the maximum score of %s.\n", strconv.Itoa(score))
+	fmt.Printf("Your score is %s out of %s.\n", strconv.Itoa(score), strconv.Itoa(len(questions)))
 	
 	csv_fd.Close()
 }
