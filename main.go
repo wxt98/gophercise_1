@@ -6,15 +6,18 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"flag"
 )
 
 func main() {
-	csv_fd, err := os.Open("problems.csv")
+	csv_file := flag.String("csv", "problems.csv", "Enter a csv file in the format of 'question,answer'")
+	flag.Parse()
+	csv_fd, err := os.Open(*csv_file)
 	if err != nil {
 		csv_fd.Close()
 		log.Fatal(err)
 	}
-	fmt.Println("CSV file opened successfully")
+	//fmt.Println("CSV file opened successfully")
 
 	file_reader := csv.NewReader(csv_fd)
 	questions, err := file_reader.ReadAll()
@@ -22,8 +25,8 @@ func main() {
 		csv_fd.Close()
 		log.Fatal(err)
 	}
-	fmt.Println("CSV file read successfully")
-	fmt.Println(questions)
+	//fmt.Println("CSV file read successfully")
+	//fmt.Println(questions)
 
 	var score int = 0
 	for _, row := range questions {

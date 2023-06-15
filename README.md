@@ -11,7 +11,10 @@ Simply run
 ```bash
 go run main.go
 ```
+Or if you wish to specify the CSV file to be used for the quizzes, run
+```bash
+go run main.go --csv CSVFILE_NAME_HERE.csv
+```
 
 ## Further implementation
 Pending implementation of a time limit.  
-Pending functionality to allow users to customize the CSV file used via a flag.
